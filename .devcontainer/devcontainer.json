@@ -1,0 +1,25 @@
+{
+  "name": "pentest-codespace",
+  "build": { "dockerfile": "Dockerfile" },
+  "remoteUser": "vscode",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/go:1": { "version": "latest" },
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.11" }
+  },
+  "containerEnv": { "PATH": "/home/vscode/go/bin:${containerWorkspaceFolder}/bin:${PATH}" },
+  "postCreateCommand": "bash .devcontainer/install-tools.sh",
+  "forwardPorts": [8080, 8000],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.remote-repositories",
+        "ms-vscode.remote-server",
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-yaml",
+        "ms-python.python"
+      ]
+    }
+  }
+}
